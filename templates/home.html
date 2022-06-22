@@ -28,6 +28,26 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
+  .buttons {
+    display: inline-block;
+    width: 800px;
+    margin: 0 auto;
+  }
+  .linkButtons {
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    position: relative;
+
+    background-color: #af684c;
+    top: 600px;
+  }
 </style>
 <body>
   <header style="text-align: center; font-size: 60px; color: white">
@@ -49,29 +69,19 @@
   </center>
 
   <center>
-    <a
-      class="button"
-      href="https://github.com/EivindKjosbakken?tab=repositories"
-      style="
-        display: inline-block;
+    <div class="buttons">
+      <a
+        class="linkButtons"
+        href="https://github.com/EivindKjosbakken?tab=repositories"
+        >To my github</a
+      >
 
-        padding: 15px 25px;
-        font-size: 24px;
-        cursor: pointer;
-        text-align: center;
-        text-decoration: none;
-        outline: none;
-        color: #fff;
-        background-color: #af684c;
-        border: none;
-        border-radius: 15px;
-        box-shadow: 0 9px #999;
-        display: inline;
-        position: relative;
-        top: 600px;
-      "
-      >To my github</a
-    >
+      <a
+        class="linkButtons"
+        href="https://www.linkedin.com/in/eivind-kjosbakken/"
+        >To my LinkedIn</a
+      >
+    </div>
   </center>
 </body>
 {% endblock%}
