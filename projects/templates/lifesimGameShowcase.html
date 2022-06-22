@@ -1,0 +1,55 @@
+{% extends 'base.html' %} {% block content %}
+<style>
+  button {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #4caf50;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    display: inline;
+    position: relative;
+    top: 100px;
+  }
+</style>
+<center>
+  <h1 style="font-size: 50px">My unity project:</h1>
+  <div
+    style="
+      width: 1000px;
+
+      margin: 0.2rem auto;
+      font-family: 'Inter', sans-serif;
+      font-weight: normal; ;
+    "
+  >
+    <h2
+      style="
+        color: black;
+        font-size: 2rem;
+        line-height: 3rem; /* reduce size to remove gap between text */
+        margin: 0px;
+      "
+    >
+      I made a simple 2D game in unity with pixel art. Basically everything is
+      made myself, except the grass blocks you walk on, and the backround. I
+      made all the pixelart my self, as well as the in game mechanics. Was made
+      the summer of 2020.
+    </h2>
+  </div>
+
+  <button
+    onclick="location.href='https://eivindk.itch.io/lifesim'"
+    type="button"
+  >
+    To page where you can play the game
+  </button>
+</center>
+
+{% endblock %}

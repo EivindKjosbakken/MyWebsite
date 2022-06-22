@@ -1,0 +1,77 @@
+{% extends "base.html" %} {% block content %} {% load static %}
+<style>
+  button {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #4caf50;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    display: inline;
+    position: relative;
+    top: 100px;
+  }
+
+  .backround {
+    background-image: url("{% static 'mysite/images/pexels-bich-tran-669996.jpg' %}");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 200%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+</style>
+<body>
+  <header style="text-align: center; font-size: 60px; color: white">
+    Welcome
+  </header>
+
+  <button
+    onclick="location.href='/createUser'"
+    type="button"
+    style="position: absolute; top: 60px; right: 7px; background-color: #363836"
+  >
+    Register user
+  </button>
+
+  <center>
+    <button onclick="location.href='/projectList'" type="button">
+      To my projects
+    </button>
+  </center>
+
+  <center>
+    <a
+      class="button"
+      href="https://github.com/EivindKjosbakken?tab=repositories"
+      style="
+        display: inline-block;
+
+        padding: 15px 25px;
+        font-size: 24px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #fff;
+        background-color: #af684c;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 9px #999;
+        display: inline;
+        position: relative;
+        top: 600px;
+      "
+      >To my github</a
+    >
+  </center>
+</body>
+{% endblock%}

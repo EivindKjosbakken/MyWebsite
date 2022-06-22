@@ -1,0 +1,33 @@
+{% extends "base.html" %} {% block content %}
+<head>
+  <style>
+h1 {color:blue}
+div {
+  width: 350px;
+  background: grey;
+  border: 15px solid darkblue;
+  margin: 20px;
+  height: 150px;
+}
+h2 {
+    font-size: 25px;
+}
+h3 {
+    font-size: 15;
+}
+</style>
+</head>
+  <h1 class="h1">All family members</h1>
+
+  {% for instance in objectList %}
+  <div>
+    <ul>
+    <li><h2>Name: {{instance.name}}</h2></li>
+    <li><h2>Age: {{instance.age}}</h2></li>
+    <p><h3>Description: {{instance.description}}</h3></p>
+    </ul>
+  </div>
+
+</body>
+
+{% endfor %} {% endblock %}

@@ -1,0 +1,6 @@
+{% extends "base.html" %} {% block content %}
+<h1>hei</h1>
+
+{% for instance in objectList %}
+<p>{{instance.id}} - {{instance.name}}</p>
+{% endfor %} {% endblock %}

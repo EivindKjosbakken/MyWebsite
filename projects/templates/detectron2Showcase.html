@@ -1,0 +1,57 @@
+{% extends 'base.html' %} {% block content %}
+<style>
+  button {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #4caf50;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    display: inline;
+    position: relative;
+    top: 100px;
+  }
+</style>
+<center>
+  <h1 style="font-size: 50px">My detectron2 model:</h1>
+  <div
+    style="
+      width: 1000px;
+      margin: 0.2rem auto;
+      font-family: 'Inter', sans-serif;
+      font-weight: normal;
+    "
+  >
+    <h2
+      style="
+        color: black;
+        font-size: 2rem;
+        line-height: 3rem; /* reduce size to remove gap between text */
+        margin: 0px;
+      "
+    >
+      For a part of my project in the subject "Computer vision and deep
+      learning", I made a detectron 2 object detector. Here you can input an
+      image, and the detectron2 model will detect objects in the pictures (only
+      certain classes like cars, bicycles, person etc.)
+    </h2>
+  </div>
+
+  <h2 style="position: relative; top: 50px">
+    Here you can upload your image, I will run it through my detectron2 model,
+    and give the output image.
+  </h2>
+  <form style="position: relative; top: 50px" action="/action_page.php">
+    <label for="img">Select image:</label>
+    <input type="file" id="img" name="img" accept="image/*" />
+    <input type="submit" />
+  </form>
+</center>
+
+{% endblock %}
