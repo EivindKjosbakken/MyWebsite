@@ -13,16 +13,19 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 from products.views import homeView, contactView, aboutView, productDetailView, productCreateView, dynamicLookupView, productDeleteView, productListView
 
 from users.views import userView, userCreateView, userViewAllView
 from familyMember.views import createMemberView, specificMemberView, memberListView
 
 from projects.views import allProjectsView, lifesimGameShowcase, detectron2Showcase
-
-
+from projects import views
 
 
 
@@ -52,6 +55,11 @@ urlpatterns = [
     path("projectList/lifesimGameShowcase", lifesimGameShowcase, name="lifesimGame"),
     path("projectList/detectron2Showcase", detectron2Showcase, name="detectron2"),
 
-
+    path('admin/', admin.site.urls),
+    #path('', views.index), #TODO fikse her
 
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,15 +1,5 @@
-from email import contentmanager
-from sqlite3 import connect
-from tkinter import Image
-from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse
-from .models import Project, Image
-
-from projects.forms import ImageForm
-# Create your views here.
 #import stuff
 import torch
-import torchvision
 import detectron2
 from detectron2.utils.logger import setup_logger
 setup_logger()
@@ -27,8 +17,10 @@ from detectron2.data import MetadataCatalog, DatasetCatalog
 from detectron2.structures import BoxMode
 
 # import packages
+from typing import Dict, List
 from detectron2.data.datasets import register_coco_instances
 # Some basic setup:
+# Setup detectron2 logger
 import detectron2
 from detectron2.utils.logger import setup_logger
 setup_logger()
@@ -46,22 +38,6 @@ from detectron2.config import get_cfg
 from detectron2.utils.visualizer import Visualizer
 from detectron2.data import MetadataCatalog, DatasetCatalog
 from detectron2.utils.visualizer import ColorMode
-
-
-def allProjectsView(request):
-    queryset = Project.objects.all()
-    context = {
-        "projectListList" : queryset
-    }
-    return render(request, "projectList.html", context)
-
-
-def lifesimGameShowcase(request):
-    context = {}
-    return render(request, "lifesimGameShowcase.html", context)
-
-
-
 
 def detectObjects(im):
 
@@ -88,30 +64,10 @@ def detectObjects(im):
         trainer.resume_or_load(resume=False)
 
         trainer.train() #if cfg not found, comment out this, and run the cell (so it finds the cfg, but doesnt train)
+
     # Running inference 
-    cfg.MODEL.WEIGHTS = os.path.join(cfg.OUTPUT_DIR, "C:/Users/eivin/OwnProjects/MyWebsite/projects/output/model_final.pth")  # path to model
+    cfg.MODEL.WEIGHTS = os.path.join(cfg.OUTPUT_DIR, "model_final.pth")  # path to model
     cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.5   # set a iou threshhold to what I used in other models
-
-    import cv2
-    
-    import glob
-   
-    folder_path = r'C:\Users\eivin\OwnProjects\MyWebsite\media\images'
-    file_type = r'\*jpg'
-    files = glob.glob(folder_path + file_type)
-    max_file = max(files, key=os.path.getctime)
-    print("LATEST file is:", max_file)
-    import time
-    #time.sleep(2)
-    # read image 
-    #print("IMAGE ER:", image)
-    im = cv2.imread(max_file)
-    #im=np.uint8(im)
-    cv2.imshow('image window', im)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
-
-
     predictor = DefaultPredictor(cfg)
 
 
@@ -133,29 +89,10 @@ def detectObjects(im):
     #closing all open windows 
     cv2.destroyAllWindows() 
     #"""
-    return out
 
 
 
 #CHOOSE IMAGE:
-#im = cv2.imread("./try1img.jpg")
+im = cv2.imread("./try1img.jpg")
 #im = cv2.imread("./try2img.jpg")
-#detectObjects(im)
-
-
-def detectron2Showcase(request):
-   
-    """Process images uploaded by users"""
-    if request.method == 'POST':
-        form = ImageForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            # Get the current instance object to display in the template
-            img_obj = form.instance
-            img_obj = detectObjects(img_obj)
-
-            return render(request, "detectron2Showcase.html", {'form': form, 'img_obj': img_obj})
-    else:
-        form = ImageForm()
-    return render(request, "detectron2Showcase.html", {'form': form})
-
+detectObjects(im)

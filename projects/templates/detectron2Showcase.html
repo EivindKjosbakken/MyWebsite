@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 <style>
-  button {
+  .nicebutton {
     display: inline-block;
     padding: 15px 25px;
     font-size: 24px;
@@ -43,16 +43,22 @@
     </h2>
   </div>
 
-  <h2 style="position: relative; top: 50px">
+  <h2 style="position: relative; top: 10px">
     Here you can upload your image, I will run it through my detectron2 model,
     and give the output image.
   </h2>
-  <form style="position: relative; top: 50px" action="/action_page.php">
-    <label for="img">Select image:</label>
-    <input type="file" id="img" name="img" accept="image/*" />
-    <input type="submit" />
-  </form>
-  <div></div>
-</center>
+ 
+<body>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+   {{ form.as_p }}
+  <button type="submit">Upload</button>
+</form>
+{% if img_obj %}
+  <h3>Succesfully uploaded</h3>
+  <img src="{{ img_obj.image.url}}" alt="connect" style="max-height:300px">
+{% endif %}
+</body>
+</html>
 
 {% endblock %}
