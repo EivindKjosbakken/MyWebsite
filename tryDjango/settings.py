@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-ivrq9o)j8%o8$xy*34nd9pqo6(2k!gh(27fulchsnbel@%0+e@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False #TODO endra
 
-ALLOWED_HOSTS = ["eivindkjosbakken.herokuapp.com", "127.0.0.1"]
+ALLOWED_HOSTS = ["eivindkjosbakken.herokuapp.com", "127.0.0.1", "eivindkjosbakkenprojects.herokuapp.com"]
 
 
 #added for adding css
