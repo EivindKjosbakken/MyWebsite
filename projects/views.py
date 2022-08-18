@@ -1,6 +1,6 @@
 from email import contentmanager
 from sqlite3 import connect
-from tkinter import Image
+
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .models import Project, Image
