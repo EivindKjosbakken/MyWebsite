@@ -58,6 +58,7 @@
     background-image: url("{% static 'mysite/images/lifesimGamePic.jpg' %}");
     background-repeat: no-repeat;
     background-size: contain;
+    
   }
   .second {
     float: left;
@@ -69,6 +70,19 @@
     background-image: url("{% static 'mysite/images/detectron2image.jpg' %}");
     background-repeat: no-repeat;
     background-size: contain;
+  }
+  .third {
+    float: left;
+    width: 250px;
+    height: 250px;
+    background-color: grey;
+    border: solid black;
+    margin-left: 0px;
+    background-image: url("{% static 'mysite/images/picOfWarehouse.jpg' %}");
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-top: 10px
+    
   }
 </style>
 <h1></h1>
@@ -86,6 +100,13 @@
     <a href="/projectList/detectron2Showcase">
       <div class="second" style="float: right" class="box">
         <h2>Detectron 2 object detector</h2>
+      </div>
+    </a>
+  </div>
+  <div>
+    <a href="/projectList/warehouseSimulationShowcase">
+      <div class="third" style="float: left" class="box">
+        <h2>Warehouse simulator</h2>
       </div>
     </a>
   </div>

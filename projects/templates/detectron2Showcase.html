@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 <style>
-  button {
+  .nicebutton {
     display: inline-block;
     padding: 15px 25px;
     font-size: 24px;
@@ -16,6 +16,22 @@
     display: inline;
     position: relative;
     top: 100px;
+  }
+  button {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #4caf50;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    display: inline;
+    position: relative;
   }
 </style>
 <center>
@@ -37,21 +53,37 @@
       "
     >
       For a part of my project in the subject "Computer vision and deep
-      learning", I made a detectron 2 object detector. Here you can input an
+      learning", I transfer learned a detectron2 object detection model. Here you can input an
       image, and the detectron2 model will detect objects in the pictures (only
-      certain classes like cars, bicycles, person etc.)
+      certain classes like cars, bicycles, person etc). Since the object detector is not working at the
+      moment, you can see a video of hit below:
+
     </h2>
+    <button 
+    onclick="location.href='https://youtu.be/KktsK7I_37s'"
+    type="button"
+  >
+    To video showcase of object detection model
+  </button>
+    
   </div>
 
-  <h2 style="position: relative; top: 50px">
+  <h2 style="position: relative; top: 10px">
     Here you can upload your image, I will run it through my detectron2 model,
-    and give the output image.
+    and give the output image (Note: not working at the moment, still working on using the object detector on the website).
   </h2>
-  <form style="position: relative; top: 50px" action="/action_page.php">
-    <label for="img">Select image:</label>
-    <input type="file" id="img" name="img" accept="image/*" />
-    <input type="submit" />
-  </form>
-</center>
+ 
+<body>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+   {{ form.as_p }}
+  <button type="submit">Upload</button>
+</form>
+{% if img_obj %}
+  <h3>Succesfully uploaded</h3>
+  <img src="{{ img_obj.image.url}}" alt="connect" style="max-height:300px">
+{% endif %}
+</body>
+</html>
 
 {% endblock %}
