@@ -25,7 +25,7 @@ Cython==3.0.0a10
 debugpy==1.5.1
 decorator==5.1.1
 defusedxml==0.7.1
-detectron2 @ git+https://github.com/facebookresearch/detectron2.git@0ad20f13e23f2f4454be6196c1cd38e2171b294c
+detectron2 @ git+https://github.com/facebookresearch/detectron2.git@v0.6
 distlib==0.3.1
 Django==4.0.5
 easydict==1.9
