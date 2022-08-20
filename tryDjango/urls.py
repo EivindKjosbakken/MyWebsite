@@ -20,7 +20,7 @@ from products.views import homeView, contactView, aboutView, productDetailView, 
 from users.views import userView, userCreateView, userViewAllView
 from familyMember.views import createMemberView, specificMemberView, memberListView
 
-from projects.views import allProjectsView, lifesimGameShowcase, detectron2Showcase
+from projects.views import allProjectsView, lifesimGameShowcase, detectron2Showcase, warehouseSimulationShowcase
 
 
 
@@ -51,6 +51,8 @@ urlpatterns = [
     path("projectList/", allProjectsView, name="allProjects"),
     path("projectList/lifesimGameShowcase", lifesimGameShowcase, name="lifesimGame"),
     path("projectList/detectron2Showcase", detectron2Showcase, name="detectron2"),
+    path("projectList/warehouseSimulationShowcase", warehouseSimulationShowcase, name="warehouseSimulationShowcase"),
+    #TODO her kan du ha admin og
 
 
 

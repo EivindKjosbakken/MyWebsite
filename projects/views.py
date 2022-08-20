@@ -19,6 +19,10 @@ def lifesimGameShowcase(request):
     context = {}
     return render(request, "lifesimGameShowcase.html", context)
 
+def warehouseSimulationShowcase(request):
+    context = {}
+    return render(request, "warehouseSimulationShowcase.html", context)
+    
 def detectron2Showcase(request):
     context = {}
     return render(request, "detectron2Showcase.html", context) 

@@ -1,0 +1,64 @@
+{% extends 'base.html' %} {% block content %}
+<style>
+  button {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #4caf50;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    display: inline;
+    position: relative;
+  }
+</style>
+<center>
+  <h1 style="font-size: 50px">My warehouse simulation project:</h1>
+  <div
+    style="
+      width: 1000px;
+
+      margin: 0.2rem auto;
+      font-family: 'Inter', sans-serif;
+      font-weight: normal; ;
+    "
+  >
+    <h2
+      style="
+        color: black;
+        font-size: 1rem;
+        line-height: 3rem; /* reduce size to remove gap between text */
+        margin: 0px;
+      "
+    >
+    This program is meant to simulate a warehouse, to see requirements for dimensions of the warehouse, 
+    number of robots required, how many items the warehouse can receive per timestep, etc. The programming
+is written completely from scratch. I first made a warehouse with blocks in it, each with different coordinates. 
+Then made robots, and give them the ability to find storage cells that are free, and that the robot
+can you to and deliver off items. The robots can also receive orders consisting of several items, and determine
+which cell it needs to go to, so it can retrieve the items. The robot will then go to that storage cell.
+Everything happens automatically, when you want to run the simulation, you just enter the hyperparameters you want.
+hyperparameters you can choose from are: size of warehouse (with length in x and y direction), number of robots, number 
+of different products (each shelf in a storage cell can only contain one type of product). Interval where items are sent to/orders are sent to warhouse.
+How many items are to be sent to the warhouse per interval, how many order of items are sent to warehouse per interval, 
+if warehouse should be visually displayed (done with the tkinter package), and if information about warehouse should be printed to console.
+You then choose how many timesteps to execute, and it will run the simulation and print out results. (results will say for example for this size of warehouse, 
+and this number of robots, the warehouse can take this many items per interval/orders per interval).  </h2>
+
+</div>
+    <h2>Since the visualisation of the warehouse is written in tkinter, I cannot display the warehouse in the browser, but I have linked to a youtube video showing how it works.
+    </h2>
+  <button 
+    onclick="location.href='https://youtu.be/kUMSbFP3YxU'"
+    type="button"
+  >
+    To video example of how the warehouse works
+  </button>
+</center>
+
+{% endblock %}
