@@ -25,10 +25,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ivrq9o)j8%o8$xy*34nd9pqo6(2k!gh(27fulchsnbel@%0+e@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True #TODO endra
+DEBUG = True 
 
-#TODO should not have * but doing it for testing purposes
-ALLOWED_HOSTS = ["*","eivindkjosbakken.herokuapp.com", "127.0.0.1"]
+#TODO should not contain *, only used while still working on the app
+ALLOWED_HOSTS = ["*", "eivindkjosbakken.herokuapp.com", "127.0.0.1", "eivindkjosbakkenprojects.herokuapp.com"]
 
 
 #added for adding css
@@ -36,6 +36,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+MEDIA_URL = '/media/' 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
 
 # Application definition
 
@@ -130,7 +133,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
